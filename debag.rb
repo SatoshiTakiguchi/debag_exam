@@ -1,12 +1,15 @@
 class Animal
     def bark
-      p 'Yeah, it’s barking.'
+        p '-------Animal.bark-------'
+        p 'Yeah, it’s barking.'
     end
 end
-  
+
 class Dog < Animal
     attr_accessor :name, :age
+    
     def initialize(name, age=1)
+        p '-------Dog.initialize-------'
         @name = name
         @age = age
     end
@@ -14,11 +17,13 @@ end
   
 class MechaDog < Dog  
     def initialize(name, age=1)
+        p '-------MechaDog.initialize-------'
         super(name, age=1)
         @data = { 'apache' => 'apache', 'bsd' => 'mit', 'chef' => 'apache' }
     end
   
     def proc arg
+        p '-------MechDog.proc-------'
         path = (arg.split[0]).split('/')[1..-1]
         if path.nil?
             keys=[]
